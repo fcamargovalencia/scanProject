@@ -38,7 +38,11 @@
             android:name=".util.CheckPermissionActivityController"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
+
         <activity android:name=".view.TextAcitivy"></activity>
+
+        <activity android:name=".view.GitHa"></activity>
+
     </application>
 
 </manifest>
