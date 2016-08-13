@@ -26,22 +26,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.DetailActivity" />
-        <activity android:name=".view.WebActivity"></activity>
-
+        <activity android:name=".view.WebActivity" />
         <activity
             android:name=".util.BarcodeScannerActivityController"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensorPortrait"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
-
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".util.CheckPermissionActivityController"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"></activity>
-
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.TextAcitivy"></activity>
     </application>
-
 
 </manifest>
