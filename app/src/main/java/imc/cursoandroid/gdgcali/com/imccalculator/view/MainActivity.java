@@ -24,6 +24,7 @@ import imc.cursoandroid.gdgcali.com.imccalculator.adapter.ResultAdapter;
 import imc.cursoandroid.gdgcali.com.imccalculator.adapter.ResultRecyclerAdapter;
 import imc.cursoandroid.gdgcali.com.imccalculator.api.Server;
 import imc.cursoandroid.gdgcali.com.imccalculator.model.ResultModel;
+import imc.cursoandroid.gdgcali.com.imccalculator.model.iagree.ObligationsModel;
 import imc.cursoandroid.gdgcali.com.imccalculator.model.wp.RecentPostAnswer;
 import imc.cursoandroid.gdgcali.com.imccalculator.util.EnvironmentFields;
 import retrofit.Callback;
@@ -68,7 +69,8 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
         context = this;
         lstResult = new ArrayList<>();
-        loadRecentPost();
+//        loadRecentPost();
+        loadObligations();
     }
 
     @OnClick(R.id.id_btn_calcular)
@@ -109,19 +111,36 @@ public class MainActivity extends Activity {
     }
 
 
-    public void loadRecentPost() {
-        Server.getSingleton().GetRecentPost(EnvironmentFields.GET_RECENT_POST, new Callback<ArrayList<RecentPostAnswer>>() {
+    public void loadObligations() {
+        Server.getSingleton().getObligations(EnvironmentFields.BODY_IAGREE, new Callback<List<ObligationsModel>>() {
             @Override
-            public void success(ArrayList<RecentPostAnswer> recentPostAnswers, Response response) {
-                for (RecentPostAnswer recentPostAnswer : recentPostAnswers) {
-                    System.out.println("Dato " + recentPostAnswer.getContent());
+            public void success(List<ObligationsModel> obligationsModels, Response response) {
+                for (ObligationsModel obli : obligationsModels) {
+                    System.out.println("Cliente: " + obli.getClient());
                 }
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(context, "Falló.." + error.getMessage(), Toast.LENGTH_LONG).show();
+
             }
         });
     }
+
+
+//    public void loadRecentPost() {
+//        Server.getSingleton().GetRecentPost(EnvironmentFields.GET_RECENT_POST, new Callback<ArrayList<RecentPostAnswer>>() {
+//            @Override
+//            public void success(ArrayList<RecentPostAnswer> recentPostAnswers, Response response) {
+//                for (RecentPostAnswer recentPostAnswer : recentPostAnswers) {
+//                    System.out.println("Dato " + recentPostAnswer.getContent());
+//                }
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                Toast.makeText(context, "Falló.." + error.getMessage(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+//    }
 }

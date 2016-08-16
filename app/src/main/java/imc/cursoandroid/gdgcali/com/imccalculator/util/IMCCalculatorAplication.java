@@ -10,7 +10,7 @@ import imc.cursoandroid.gdgcali.com.imccalculator.api.Server;
 public class IMCCalculatorAplication extends Application {
     @Override
     public void onCreate() {
-        Server.getInstance().init(EnvironmentFields.SERVER, this);
+        Server.getInstance().init(EnvironmentFields.SERVER_IAGREE, this);
 
     }
 }

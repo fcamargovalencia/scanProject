@@ -31,11 +31,11 @@ public class ItemTypeAdapterFactory implements TypeAdapterFactory {
                 JsonElement jsonElement = elementAdapter.read(in);
                 if (jsonElement.isJsonObject()) {
                     JsonObject jsonObject = jsonElement.getAsJsonObject();
-                    if (jsonObject.has("posts")) {
-                        if (jsonObject.get("posts").isJsonArray()) {
-                            jsonElement = jsonObject.getAsJsonArray("posts");
+                    if (jsonObject.has("result_array")) {
+                        if (jsonObject.get("result_array").isJsonArray()) {
+                            jsonElement = jsonObject.getAsJsonArray("result_array");
                         } else {
-                            jsonElement = jsonObject.getAsJsonObject("posts");
+                            jsonElement = jsonObject.getAsJsonObject("result_array");
                         }
                     }
                 }
